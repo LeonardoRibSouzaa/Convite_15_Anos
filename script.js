@@ -39,7 +39,7 @@ function criarEstrelas() {
 
 function tocar() {
     if (!iniciado) {
-        audio.play().catch(() => {});
+        audio.play();
         iniciado = true;
     }
 }
@@ -53,12 +53,11 @@ function render(html) {
 }
 
 function menu() {
-    tocar();
     criarParticulas();
     criarEstrelas();
     
     titulo.innerHTML = `
-        <svg width="100%" height="160" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <svg width="100%" height="110" viewBox="0 0 600 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <defs>
                 <style>
                     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
@@ -209,3 +208,6 @@ function final() {
 window.addEventListener('load', () => {
     menu();
 });
+
+// Tocar áudio ao clicar em qualquer lugar
+document.body.addEventListener("click", tocar);
