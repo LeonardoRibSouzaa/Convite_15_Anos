@@ -57,7 +57,7 @@ function menu() {
     criarEstrelas();
     
     titulo.innerHTML = `
-        <svg width="100%" height="110" viewBox="0 0 600 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <svg width="100%" height="110" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <defs>
                 <style>
                     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
