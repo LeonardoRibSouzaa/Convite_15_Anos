@@ -1,0 +1,42 @@
+{
+  "site": {
+    "title": "15 anos da Eloah | Convite Especial",
+    "language": "pt-BR",
+    "author": "Custom Design"
+  },
+  "audio": {
+    "src": "musica.mp3",
+    "volume": 0.2,
+    "loop": true,
+    "autoplay": false
+  },
+  "colors": {
+    "primary": "#ff66d1",
+    "secondary": "#850085",
+    "accent": "#ffb3ff"
+  },
+  "festa": {
+    "nome": "Eloah",
+    "anos": 15,
+    "data": "03 de Maio de 2026",
+    "hora": "19:00",
+    "local": "Congregação Batista",
+    "traje": "Digno de um conto de fadas"
+  },
+  "performance": {
+    "enableGPUAcceleration": true,
+    "particleCount": 25,
+    "starCount": 60,
+    "animationDuration": "5s"
+  },
+  "presentes": [
+    "Acessórios e Joias",
+    "Produtos de Beleza",
+    "Livros e Revistas",
+    "Tecnologia e Gadgets",
+    "Roupas e Bolsas",
+    "Experiências (Cinema, Show, etc)",
+    "Decoração e Plantas",
+    "Perfumes e Cosméticos"
+  ]
+}

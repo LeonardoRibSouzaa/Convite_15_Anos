@@ -211,3 +211,26 @@ window.addEventListener('load', () => {
 
 // Tocar áudio ao clicar em qualquer lugar
 document.body.addEventListener("click", tocar);
+
+// Pausar áudio ao sair da aba/janela
+window.addEventListener('blur', () => {
+    if (iniciado && !audio.paused) {
+        audio.pause();
+    }
+});
+
+// Pausar áudio ao fechar ou sair do site
+window.addEventListener('beforeunload', () => {
+    audio.pause();
+    audio.currentTime = 0;
+});
+
+// Pausar ao sair da página (tab change, close, etc)
+document.addEventListener('pagehide', () => {
+    audio.pause();
+});
+
+// Retomar áudio ao voltar para a aba
+window.addEventListener('focus', () => {
+    // Usuário pode clicar para retomar
+});
