@@ -108,7 +108,7 @@ function menu() {
     setTimeout(() => {
         const buttons = document.getElementById("buttons");
         if (buttons) buttons.style.display = "block";
-    }, 2500);
+    }, 1);
 }
 
 function historia() {
@@ -176,14 +176,23 @@ function presentes() {
     render(`
         <h1>🎁 Sugestões de Presentes</h1>
         <p style="text-align: left; margin: 15px 0;">
-        • Acessórios e Joias<br>
-        • Produtos de Beleza<br>
-        • Livros e Revistas<br>
-        • Tecnologia e Gadgets<br>
-        • Roupas e Bolsas<br>
-        • Experiências (Cinema, Show, etc)<br>
-        • Decoração e Plantas<br>
-        • Perfumes e Cosméticos
+            <ul>
+                <li>Vestido - Tamanho 16</li>
+                <li>Moletom - Tamanho 16</li>
+                <li>Conjunto Saia e Blusa - Tamanho 16</li>
+                <li>Calça Cargo - Tamanho 16</li>
+                <li>Blusa - Tamanho 14</li>
+                <li>Tênis - Preferência AllStar Tamanho 37</li>
+                <li>Sandália - Tamanho 37</li>
+                <li>Perfume - Preferência Oboticario, Melu</li>
+                <li>Hidratante Corporal - Bubbaloo</li>
+                <li>Kit de Skin Scare - Preferência Melu</li>
+                <li>Caneca - Preferência Personalizada Guerreiras do K-pop</li>
+                <li>Bolsa</li>
+                <li>kit Rebecca Bonbon</li>
+                <li>Bolssinha de costa</li>
+                <li>Livro Princesa Desastrada</li>
+            </ul>
         </p>
         <hr>
         <p style="font-size: 0.9rem;">O mais importante é sua presença! 💜</p>
