@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <title>15 anos da Eloah | Convite Especial</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+
 <div class="smoke s1"></div>
 <div class="smoke s2"></div>
 <div class="smoke s3"></div>
@@ -28,6 +30,32 @@
     <div class="corner-decoration bottom-right"></div>
 </div>
 <audio id="bgm" src="musica.mp3" loop></audio>
+
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA7vWShogslCebspaiOSaZ4FY1JIfMt2Dg",
+        authDomain: "convite-15-anos-9a696.firebaseapp.com",
+        projectId: "convite-15-anos-9a696",
+        storageBucket: "convite-15-anos-9a696.firebasestorage.app",
+        messagingSenderId: "458865507945",
+        appId: "1:458865507945:web:5f82574a75c8eed6c1acf8",
+        measurementId: "G-3QMC431VDB"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // deixa global pra usar no script.js
+    window.db = db;
+    window.collection = collection;
+    window.addDoc = addDoc;
+</script>
+
 <script src="script.js"></script>
 </body>
 </html>

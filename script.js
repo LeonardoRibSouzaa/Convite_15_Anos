@@ -4,6 +4,11 @@ const audio = document.getElementById("bgm");
 const particlesContainer = document.querySelector(".particles");
 const starsContainer = document.querySelector(".stars");
 
+
+
+
+
+
 audio.volume = 0.2;
 
 let iniciado = false;
@@ -57,7 +62,7 @@ function menu() {
     criarEstrelas();
     
     titulo.innerHTML = `
-        <svg width="100%" height="110" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <svg width="100%" height="200" viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <defs>
                 <style>
                     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
@@ -76,7 +81,7 @@ function menu() {
                     }
                     .writing-text {
                         font-family: 'Great Vibes', cursive;
-                        font-size: 95px;
+                        font-size: 150px;
                         font-weight: 400;
                         fill: none;
                         stroke: #ffb3ff;
@@ -90,8 +95,8 @@ function menu() {
                     }
                 </style>
             </defs>
-            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="writing-text">
-              15 anos da Eloah
+            <text x="75%" y="50%" text-anchor="middle" dominant-baseline="middle" class="writing-text">
+              Eloah
             </text>
         </svg>
     `;
@@ -117,8 +122,8 @@ function historia() {
         <p>Em um reino onde os sonhos se tornam realidade,<br>
         uma princesa estava prestes a viver<br>o dia mais inesquecível da sua vida.</p>
         <hr>
-        <button onclick="princesa()">➡️ Continuar</button>
-        <button onclick="menu()">⬅️ Menu</button>
+        <button onclick="princesa()">Continuar</button>
+        <button onclick="menu()">Menu</button>
     `);
 }
 
@@ -130,7 +135,7 @@ function princesa() {
         a idade em que os sonhos ganham asas<br>
         e novos caminhos se abrem no coração.</p>
         <hr>
-        <button onclick="convite()">➡️ Continuar</button>
+        <button onclick="convite()">Continuar</button>
     `);
 }
 
@@ -141,7 +146,7 @@ function convite() {
         <b>Está convidado(a) para a Festa de 15 anos<br>da Princesa Eloah</b>.</p>
         <hr>
         <p style="font-size: 0.95rem; opacity: 0.9;">Uma noite mágica o espera...</p>
-        <button onclick="detalhes()">➡️ Detalhes</button>
+        <button onclick="detalhes()">➡Detalhes</button>
     `);
 }
 
@@ -155,22 +160,69 @@ function detalhes() {
         👗 <b>Traje:</b> Digno de um conto de fadas
         </p>
         <hr>
-        <button onclick="final()">➡️ Mensagem Final</button>
-        <button onclick="menu()">⬅️ Menu</button>
+        <button onclick="final()">Mensagem Final</button>
+        <button onclick="menu()">Menu</button>
     `);
 }
 
+function bindButtons(){
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const nome = document.querySelector("input[name='nome']").value.trim();
+
+        if(nome === ""){
+            alert("digita teu nome aí 😅");
+            return;
+        }
+
+        try {
+            console.log("Enviando:", nome);
+            await addDoc(collection(db, "presencas"), {
+                nome: nome,
+                data: new Date()
+            });
+
+            presencaConfirmada(nome);
+        } catch (erro) {
+            console.log(erro);
+            alert("erro ao salvar 😢");
+        }
+    });
+}
+
+
 function presenca() {
     render(`
+        <form>
+            <fieldset>
+                <legend>✏️ Digite seu Nome</legend>
+                    <input id="nome" type="text" placeholder="seu nome aqui" name="nome" required>
+                    <hr>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">💜</p>
+            </fieldset>
+            <button id="enviar" type="submit" >Enviar</button>
+        </form>
+    `);
+
+    bindButtons()
+
+}
+
+function presencaConfirmada(nome) {
+    render(`
         <h1>✅ Confirmar Presença</h1>
-        <p>Obrigada por confirmar sua presença!<br><br>
+        <p>Obrigada por confirmar sua presença! ${nome}<br><br>
         Sua confirmação foi registrada.<br><br>
         Prepare-se para uma noite inesquecível!</p>
         <hr>
         <p style="font-size: 0.9rem; opacity: 0.8;">Nos vemos em breve! 💜</p>
-        <button onclick="menu()">⬅️ Voltar ao Menu</button>
+        <button onclick="menu()">Voltar ao Menu</button>
     `);
 }
+
 
 function presentes() {
     render(`
@@ -196,25 +248,25 @@ function presentes() {
         </p>
         <hr>
         <p style="font-size: 0.9rem;">O mais importante é sua presença! 💜</p>
-        <button onclick="menu()">⬅️ Voltar ao Menu</button>
+        <button onclick="menu()">Voltar ao Menu</button>
     `);
 }
 
 function final() {
     render(`
-        <h1>✨ A Magia Chega</h1>
+        <h1>✨ O momento chegou</h1>
         <p>Prepare-se para uma noite inesquecível<br>
-        de música, dança e momentos mágicos.<br><br>
+        de música, felicidade e momentos mágicos.<br><br>
         <b>Essa história só fica completa com você lá.</b><br><br>
         🌙✨💜✨🌙</p>
         <hr>
         <p style="font-size: 0.95rem;"><b>Com carinho,</b><br><b>Eloah</b></p>
-        <button onclick="menu()">⬅️ Voltar ao Menu</button>
+        <button onclick="menu()">Voltar ao Menu</button>
     `);
 }
 
 // Iniciar ao carregar
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     menu();
 });
 

@@ -24,11 +24,11 @@ body {
     color: white;
     position: relative;
     background:
-        linear-gradient(270deg, rgba(247, 202, 201, 0.47), 
-        rgba(247, 202, 201, 0.47)), 
+        linear-gradient(270deg, rgba(247, 202, 201, 0.47),
+        rgba(247, 202, 201, 0.47)),
         url("./img/eloah.webp"),
         #4f777e;
-        
+
     background-size: cover, cover,cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -213,6 +213,37 @@ body {
 }
 
 h1 {
+    color: #ffb3ff;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 73, 240, 0.5);
+    letter-spacing: 1px;
+    animation: glow 2s ease-in-out infinite;
+}
+
+fieldset{
+    border: none;
+}
+
+input{
+    background-color: transparent;
+    border: #850085 5px solid;
+    border-radius: 5px;
+    width: 75%;
+    height: 50%;
+    text-align: center;
+    color: white;
+    outline-color: rgba(255, 179, 255 , 0.20);
+}
+
+input::placeholder{
+    color: #fff;
+}
+
+
+
+legend {
     color: #ffb3ff;
     margin-bottom: 15px;
     font-size: 1.6rem;
@@ -415,44 +446,49 @@ text {
         margin-top: 50px;
         margin-bottom: 15px;
     }
-    
+
     .card {
         width: 100%;
         height: auto;
         max-height: 80vh;
     }
-    
+
     #typed-text {
         font-size: 1.5rem;
     }
-    
+
     button {
         max-width: 100%;
         padding: 12px 16px;
         font-size: 0.95rem;
     }
-    
+
     h1 {
         font-size: 1.4rem;
     }
-    
+
     .corner-decoration {
         width: 60px;
         height: 60px;
     }
-    
+
     .container {
         margin-top: 20px;
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
     .titulo {
         margin-top: 60px;
     }
-    
+
     .container {
         max-height: 350px;
         margin-top: 25px;
     }
 }
+
